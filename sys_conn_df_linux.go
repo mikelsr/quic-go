@@ -3,8 +3,10 @@
 package quic
 
 import (
+	"encoding/binary"
 	"errors"
 	"log"
+	"net/netip"
 	"os"
 	"strconv"
 	"syscall"
@@ -80,4 +82,16 @@ func appendUDPSegmentSizeMsg(b []byte, size uint16) []byte {
 	offset := startLen + unix.CmsgSpace(0)
 	*(*uint16)(unsafe.Pointer(&b[offset])) = size
 	return b
+}
+
+func parseIPv4PktInfo(body []byte) (ip netip.Addr, ifIndex uint32, ok bool) {
+	// struct in_pktinfo {
+	// 	unsigned int   ipi_ifindex;  /* Interface index */
+	// 	struct in_addr ipi_spec_dst; /* Local address */
+	// 	struct in_addr ipi_addr;     /* Header Destination address */
+	// };
+	if len(body) != 12 {
+		return netip.Addr{}, 0, false
+	}
+	return netip.AddrFrom4(*(*[4]byte)(body[8:12])), binary.LittleEndian.Uint32(body), true
 }
