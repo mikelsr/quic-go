@@ -9,12 +9,12 @@ import (
 	"math/big"
 	"time"
 
-	mocktls "github.com/quic-go/quic-go/internal/mocks/tls"
-	"github.com/quic-go/quic-go/internal/protocol"
-	"github.com/quic-go/quic-go/internal/qerr"
-	"github.com/quic-go/quic-go/internal/testdata"
-	"github.com/quic-go/quic-go/internal/utils"
-	"github.com/quic-go/quic-go/internal/wire"
+	mocktls "github.com/mikelsr/quic-go/internal/mocks/tls"
+	"github.com/mikelsr/quic-go/internal/protocol"
+	"github.com/mikelsr/quic-go/internal/qerr"
+	"github.com/mikelsr/quic-go/internal/testdata"
+	"github.com/mikelsr/quic-go/internal/utils"
+	"github.com/mikelsr/quic-go/internal/wire"
 
 	"github.com/golang/mock/gomock"
 

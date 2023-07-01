@@ -13,11 +13,11 @@ import (
 	"sync"
 	"time"
 
-	"github.com/quic-go/quic-go/internal/wire"
+	"github.com/mikelsr/quic-go/internal/wire"
 
-	"github.com/quic-go/quic-go/internal/protocol"
-	"github.com/quic-go/quic-go/internal/utils"
-	"github.com/quic-go/quic-go/logging"
+	"github.com/mikelsr/quic-go/internal/protocol"
+	"github.com/mikelsr/quic-go/internal/utils"
+	"github.com/mikelsr/quic-go/logging"
 )
 
 // The Transport is the central point to manage incoming and outgoing QUIC connections.
@@ -308,7 +308,7 @@ func (t *Transport) listen(conn rawConn) {
 				if disable, _ := strconv.ParseBool(os.Getenv("QUIC_GO_DISABLE_RECEIVE_BUFFER_WARNING")); disable {
 					return
 				}
-				log.Printf("%s. See https://github.com/quic-go/quic-go/wiki/UDP-Receive-Buffer-Size for details.", err)
+				log.Printf("%s. See https://github.com/mikelsr/quic-go/wiki/UDP-Receive-Buffer-Size for details.", err)
 			})
 		}
 	}
@@ -318,7 +318,7 @@ func (t *Transport) listen(conn rawConn) {
 				if disable, _ := strconv.ParseBool(os.Getenv("QUIC_GO_DISABLE_RECEIVE_BUFFER_WARNING")); disable {
 					return
 				}
-				log.Printf("%s. See https://github.com/quic-go/quic-go/wiki/UDP-Receive-Buffer-Size for details.", err)
+				log.Printf("%s. See https://github.com/mikelsr/quic-go/wiki/UDP-Receive-Buffer-Size for details.", err)
 			})
 		}
 	}
@@ -328,7 +328,7 @@ func (t *Transport) listen(conn rawConn) {
 		//nolint:staticcheck // SA1019 ignore this!
 		// TODO: This code is used to ignore wsa errors on Windows.
 		// Since net.Error.Temporary is deprecated as of Go 1.18, we should find a better solution.
-		// See https://github.com/quic-go/quic-go/issues/1737 for details.
+		// See https://github.com/mikelsr/quic-go/issues/1737 for details.
 		if nerr, ok := err.(net.Error); ok && nerr.Temporary() {
 			t.mutex.Lock()
 			closed := t.closed

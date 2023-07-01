@@ -4,7 +4,7 @@ import (
 	"net"
 	"time"
 
-	"github.com/quic-go/quic-go/internal/protocol"
+	"github.com/mikelsr/quic-go/internal/protocol"
 
 	"github.com/golang/mock/gomock"
 

@@ -12,7 +12,7 @@ import (
 
 	"golang.org/x/sys/unix"
 
-	"github.com/quic-go/quic-go/internal/utils"
+	"github.com/mikelsr/quic-go/internal/utils"
 )
 
 func setDF(rawConn syscall.RawConn) (bool, error) {

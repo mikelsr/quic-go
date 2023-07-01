@@ -6,8 +6,8 @@ import (
 	"syscall"
 	"time"
 
-	"github.com/quic-go/quic-go/internal/protocol"
-	"github.com/quic-go/quic-go/internal/utils"
+	"github.com/mikelsr/quic-go/internal/protocol"
+	"github.com/mikelsr/quic-go/internal/utils"
 )
 
 // OOBCapablePacketConn is a connection that allows the reading of ECN bits from the IP header.
