@@ -56,7 +56,7 @@ func (m *connMultiplexer) AddConn(c indexableConn) {
 		// This is a safeguard because we're introducing a breaking API change, see
 		// https://github.com/quic-go/quic-go/issues/3727 for details.
 		// We'll remove this at a later time, when most users of the library have made the switch.
-		panic("connection already exists") // TODO: write a nice message
+		// panic("connection already exists") // TODO: write a nice message
 	}
 	m.conns[connIndex] = p
 }
